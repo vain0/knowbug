@@ -2,17 +2,17 @@
 #include "hsx_internals.h"
 
 namespace hsx {
-	auto pval_to_type(PVal const* pval) -> HspType {
+	auto hsx_pval_to_type(PVal const* pval) -> HspType {
 		assert(pval != nullptr);
 		return (HspType)pval->flag;
 	}
 
-	auto pval_to_varmode(PVal const* pval) -> HspVarMode {
+	auto hsx_pval_to_varmode(PVal const* pval) -> HspVarMode {
 		assert(pval != nullptr);
 		return (HspVarMode)pval->mode;
 	}
 
-	auto pval_to_lengths(PVal const* pval) -> HspDimIndex {
+	auto hsx_pval_to_lengths(PVal const* pval) -> HspDimIndex {
 		assert(pval != nullptr);
 
 		auto lengths = std::array<std::size_t, HspDimIndex::MAX_DIM>{};
@@ -31,36 +31,36 @@ namespace hsx {
 		return HspDimIndex{ i, lengths };
 	}
 
-	auto pval_to_element_count(PVal const* pval) -> std::size_t {
-		return pval_to_lengths(pval).size();
+	auto hsx_pval_to_element_count(PVal const* pval) -> std::size_t {
+		return hsx_pval_to_lengths(pval).size();
 	}
 
-	auto pval_is_standard_array(PVal const* pval, HSPCTX const* ctx) -> bool {
+	auto hsx_pval_is_standard_array(PVal const* pval, HSPCTX const* ctx) -> bool {
 		assert(pval != nullptr);
 		if (pval->len[1] == 1 && pval->len[2] == 0) {
 			return false;
 		}
 
-		auto varproc = pval_to_varproc(pval, ctx);
-		return varproc_does_support(varproc, HSPVAR_SUPPORT_FIXEDARRAY | HSPVAR_SUPPORT_FLEXARRAY);
+		auto varproc = hsx_pval_to_varproc(pval, ctx);
+		return hsx_varproc_does_support(varproc, HSPVAR_SUPPORT_FIXEDARRAY | HSPVAR_SUPPORT_FLEXARRAY);
 	}
 
-	auto pval_to_data(PVal const* pval, HSPCTX const* ctx) -> std::optional<HspData> {
-		return element_to_data(pval, 0, ctx);
+	auto hsx_pval_to_data(PVal const* pval, HSPCTX const* ctx) -> std::optional<HspData> {
+		return hsx_element_to_data(pval, 0, ctx);
 	}
 
-	auto pval_to_memory_block(PVal const* pval, HSPCTX const* ctx) -> MemoryView {
+	auto hsx_pval_to_memory_block(PVal const* pval, HSPCTX const* ctx) -> MemoryView {
 		assert(pval != nullptr);
 
-		auto&& data_opt = pval_to_data(pval, ctx);
+		auto&& data_opt = hsx_pval_to_data(pval, ctx);
 		if (!data_opt) {
 			return MemoryView{};
 		}
 
-		return element_data_to_memory_block(pval, data_opt->ptr(), ctx);
+		return hsx_element_data_to_memory_block(pval, data_opt->ptr(), ctx);
 	}
 
-	auto pval_to_str(PVal const* pval, HSPCTX const* ctx)->std::optional<HspStr> {
-		return element_to_str(pval, 0, ctx);
+	auto hsx_pval_to_str(PVal const* pval, HSPCTX const* ctx)->std::optional<HspStr> {
+		return hsx_element_to_str(pval, 0, ctx);
 	}
 }

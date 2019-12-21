@@ -2,16 +2,16 @@
 #include "hsx_internals.h"
 
 namespace hsx {
-	auto param_stack_to_param_data_count(HspParamStack const& param_stack) -> std::size_t {
-		return struct_to_param_count(param_stack.struct_dat());
+	auto hsx_param_stack_to_param_data_count(HspParamStack const& param_stack) -> std::size_t {
+		return hsx_struct_to_param_count(param_stack.struct_dat());
 	}
 
-	auto param_stack_to_param_data(HspParamStack const& param_stack, std::size_t param_index, HSPCTX const* ctx) -> std::optional<HspParamData> {
-		if (param_index >= param_stack_to_param_data_count(param_stack)) {
+	auto hsx_param_stack_to_param_data(HspParamStack const& param_stack, std::size_t param_index, HSPCTX const* ctx) -> std::optional<HspParamData> {
+		if (param_index >= hsx_param_stack_to_param_data_count(param_stack)) {
 			return std::nullopt;
 		}
 
-		auto&& param_opt = struct_to_params(param_stack.struct_dat(), ctx).get(param_index);
+		auto&& param_opt = hsx_struct_to_params(param_stack.struct_dat(), ctx).get(param_index);
 		if (!param_opt) {
 			return std::nullopt;
 		}

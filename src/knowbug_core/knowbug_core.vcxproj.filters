@@ -22,7 +22,7 @@
     <Filter Include="hspsdk\win32gui">
       <UniqueIdentifier>{a52c5b5e-7dcd-4c75-8181-631970be012f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="hsp-sdk-ext">
+    <Filter Include="hsx">
       <UniqueIdentifier>{537145cd-4a9d-455b-ba8b-407560776c46}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -76,34 +76,34 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="hsx_data.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="hsx_dim_index.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="hsx_param_data.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="hsx_param_stack.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="hsx_types_fwd.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="hsx_var_metadata.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="hsx.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="hsx_internals.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="hsx_slice.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="hsx_debug_segment.h">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClInclude>
     <ClInclude Include="string_format.h">
       <Filter>ヘッダー ファイル</Filter>
@@ -162,43 +162,43 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="hsx_data.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_pval.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_static_vars.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_object_temps.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_param.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_struct.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_param_data.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_param_stack.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_system_var.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_flex.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_debug.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_debug_segment.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="hsx_element.cpp">
-      <Filter>hsp-sdk-ext</Filter>
+      <Filter>hsx</Filter>
     </ClCompile>
     <ClCompile Include="string_writer.cpp">
       <Filter>ソース ファイル</Filter>

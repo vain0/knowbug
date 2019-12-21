@@ -128,7 +128,7 @@ auto wc_call_frame_to_param_stack(WcCallFrameKey const& key) -> std::optional<hs
 	// 引数スタックが真正であるための条件
 	auto is_safe = next_sublev == prev_sublev + 1;
 
-	auto param_stack_size = hsx::struct_to_param_stack_size(struct_dat);
+	auto param_stack_size = hsx::hsx_struct_to_param_stack_size(struct_dat);
 
 	return std::make_optional<hsx::HspParamStack>(struct_dat, next_param_stack, param_stack_size, is_safe);
 }
@@ -148,7 +148,7 @@ static void modcmd_init(HSP3TYPEINFO* info) {
 
 // ユーザ定義命令の呼び出し処理のラッパー
 static auto modcmd_cmdfunc(int cmdid) -> int {
-	auto struct_dat = hsx::structs(ctx).get_unchecked((std::size_t)cmdid);
+	auto struct_dat = hsx::hsx_structs(ctx).get_unchecked((std::size_t)cmdid);
 
 	wc_will_call(struct_dat);
 	auto runmode = s_modcmd_cmdfunc_impl(cmdid);
@@ -158,7 +158,7 @@ static auto modcmd_cmdfunc(int cmdid) -> int {
 
 // ユーザ定義関数の呼び出し処理のラッパー
 static auto modcmd_reffunc(int* type_res, int cmdid) -> void* {
-	auto struct_dat = hsx::structs(ctx).get_unchecked((std::size_t)cmdid);
+	auto struct_dat = hsx::hsx_structs(ctx).get_unchecked((std::size_t)cmdid);
 
 	wc_will_call(struct_dat);
 	auto result = s_modcmd_reffunc_impl(type_res, cmdid);

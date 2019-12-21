@@ -1007,19 +1007,19 @@ public:
 	}
 
 	void client_did_step_continue() {
-		hsx::debug_do_set_mode(HSPDEBUG_RUN, debug_);
+		hsx::hsx_debug_do_set_mode(HSPDEBUG_RUN, debug_);
 		touch_all_windows();
 
 		send_continued_event();
 	}
 
 	void client_did_step_pause() {
-		hsx::debug_do_set_mode(HSPDEBUG_STOP, debug_);
+		hsx::hsx_debug_do_set_mode(HSPDEBUG_STOP, debug_);
 		touch_all_windows();
 	}
 
 	void client_did_step_in() {
-		hsx::debug_do_set_mode(HSPDEBUG_STEPIN, debug_);
+		hsx::hsx_debug_do_set_mode(HSPDEBUG_STEPIN, debug_);
 		touch_all_windows();
 
 		send_continued_event();

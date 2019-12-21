@@ -76,6 +76,6 @@ void KnowbugStepController::begin_update() {
 
 void KnowbugStepController::end_update() {
 	if (step_controller_.is_mode_changed()) {
-		hsx::debug_do_set_mode(step_mode_to_debug_mode(step_controller_.mode()), debug_);
+		hsx::hsx_debug_do_set_mode(step_mode_to_debug_mode(step_controller_.mode()), debug_);
 	}
 }
