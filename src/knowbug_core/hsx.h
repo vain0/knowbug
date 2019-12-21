@@ -9,6 +9,7 @@
 #pragma once
 
 #include <assert.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include "../hspsdk/hsp3debug.h"
 #include "../hspsdk/hsp3struct.h"
@@ -26,6 +27,32 @@
 #include "hsx_types_fwd.h"
 #include "hsx_var_metadata.h"
 #include "memory_view.h"
+
+#ifdef __cplusplus
+typedef bool HsxBool;
+#else
+typedef _Bool HsxBool;
+#endif
+
+EXPORT void hsx_value_ptr_from_label_ptr(HsxValuePtr* value_ptr, HsxLabel const* label_ptr);
+
+EXPORT void hsx_value_ptr_from_str(HsxValuePtr* value_ptr, char const* str);
+
+EXPORT void hsx_value_ptr_from_double_ptr(HsxValuePtr* value_ptr, HsxDouble const* double_ptr);
+
+EXPORT void hsx_value_ptr_from_int_ptr(HsxValuePtr* value_ptr, HsxInt const* int_ptr);
+
+EXPORT void hsx_value_ptr_from_flex_ptr(HsxValuePtr* value_ptr, FlexValue const* flex_ptr);
+
+EXPORT HsxBool hsx_value_ptr_as_label(HsxValuePtr const* value_ptr, HsxLabel const** label_ptr_out);
+
+EXPORT HsxBool hsx_value_ptr_as_str(HsxValuePtr const* value_ptr, char const** str_out);
+
+EXPORT HsxBool hsx_value_ptr_as_int(HsxValuePtr const* value_ptr, HsxInt const** int_ptr_out);
+
+EXPORT HsxBool hsx_value_ptr_as_double(HsxValuePtr const* value_ptr, HsxDouble const** double_ptr_out);
+
+EXPORT HsxBool hsx_value_ptr_as_flex(HsxValuePtr const* value_ptr, FlexValue const** flex_ptr_ptr);
 
 namespace hsx {
 	using HspStr = Slice<char>;
