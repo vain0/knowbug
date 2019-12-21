@@ -8,6 +8,16 @@
 
 #pragma once
 
+#include <assert.h>
+#include <stdint.h>
+#include "../hspsdk/hsp3debug.h"
+#include "../hspsdk/hsp3struct.h"
+#include "../hspsdk/hspvar_core.h"
+
+#ifdef _WINDOWS
+#include "../hspsdk/hspwnd.h"
+#endif
+
 #include "hsx_data.h"
 #include "hsx_dim_index.h"
 #include "hsx_param_data.h"
@@ -18,12 +28,6 @@
 #include "memory_view.h"
 
 namespace hsx {
-	// HSP の文字列データ。
-	// 1. str 型はランタイムエンコーディング (shift_jis/utf-8) の文字列だけでなく、
-	// 他のエンコーディングの文字列や任意のバイナリを格納するのにも使われることがたまにある。
-	// 特に、null 終端とは限らない点に注意。std::strlen などの null 終端を前提とする関数に渡してはいけない。
-	// 2. 変数や refstr に由来する文字列データはバッファサイズが容易に取得できる。
-	// str 引数の文字列データはバッファサイズを取得できないが、null 終端が保証されている。
 	using HspStr = Slice<char>;
 
 	extern auto hsx_data_from_label(HspLabel const* ptr)->HspData;

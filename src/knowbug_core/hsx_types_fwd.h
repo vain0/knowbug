@@ -1,16 +1,10 @@
-//! hsp_sdk_ext で使用する型を定義する。
+// hsx の型
+// HSPSDK の　hspvar_core を include しないとコンパイルできない。
 
-#pragma once
+#ifndef HSX_TYPES_FWD_H
+#define HSX_TYPES_FWD_H
 
-#include <cassert>
-#include <cstdint>
-#include "../hspsdk/hsp3debug.h"
-#include "../hspsdk/hsp3struct.h"
-#include "../hspsdk/hspvar_core.h"
-
-#ifdef _WINDOWS
-#include "../hspsdk/hspwnd.h"
-#endif
+#include "hsx_types.h"
 
 namespace hsx {
 	class HspData;
@@ -19,27 +13,14 @@ namespace hsx {
 	class HspParamStack;
 	class HspVarMetadata;
 
-	// code segment (CS) 領域のデータ単位。
-	using HspCodeUnit = unsigned short;
-
-	// オブジェクトテンポラリ (ラベルのこと)
-	// code segment (CS) 領域のオフセットという形で、コードの位置を表す。
-	using HspObjectTemp = std::int32_t;
-
-	// ラベル (ランタイムにおけるラベルの表現)。
-	// code segment 内へのポインタ (有効) または nullptr (無効)。
-	using HspLabel = HspCodeUnit const*;
-
-	using HspDouble = double;
-
-	using HspInt = std::int32_t;
-
-	// 引数の種類
-	// MPTYPE_*
-	using HspParamType = int;
+	using HspCodeUnit = HsxCodeUnit;
+	using HspObjectTemp = HsxObjectTemp;
+	using HspLabel = HsxLabel;
+	using HspDouble = HsxDouble;
+	using HspInt = HsxInt;
+	using HspParamType = HsxParamType;
 
 	// HSP の変数が持つデータの型
-	// FIXME: HspVarType に改名
 	enum class HspType {
 		None = HSPVAR_FLAG_NONE,
 		Label = HSPVAR_FLAG_LABEL,
@@ -77,9 +58,11 @@ namespace hsx {
 	// デバッグウィンドウへの通知の種類
 	enum class DebugNoticeKind {
 		// assert, stop やステップ実行の完了などにより、HSP スクリプトの実行が一時停止したとき
-		Stop = 0,
+		Stop = HSX_DEBUG_NOTICE_STOP,
 
 		// logmes 命令が実行されたとき。ログの内容は ctx->stmp にある。
-		Logmes = 1,
+		Logmes = HSX_DEBUG_NOTICE_LOGMES,
 	};
 }
+
+#endif
