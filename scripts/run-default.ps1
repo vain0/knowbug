@@ -1,3 +1,3 @@
 #!/bin/pwsh
 
-./scripts/run.ps1 "./sandbox/default.hsp" "hsp3utf"
+./scripts/run.ps1 "C:/repo/local/KanColleListMakerKaini/src/main.hsp" "hsp3utf"
